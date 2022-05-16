@@ -1,0 +1,16 @@
+{
+    "name": "orakeshi.orakeshitools.editor",
+    "rootNamespace": "Orakeshi.OrakeshiTools",
+    "references": [
+        "GUID:2ddf9ebb8700f4940918f3135e4b1fd7"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
