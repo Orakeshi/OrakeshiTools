@@ -8,7 +8,7 @@ namespace Orakeshi.OrakeshiTools.Audio
     /// </summary>
     public class AudioHandler
     {
-        internal AudioSource AudioSource { get; set; }
+        public AudioSource AudioSource { get; set; }
         
         /// <summary>
         /// Plays sound with a given audio clip.
