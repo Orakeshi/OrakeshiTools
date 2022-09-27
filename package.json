@@ -1,19 +1,19 @@
 {
   "name": "com.orakeshi.orakeshitools",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "displayName": "Orakeshi Tools",
-  "description": "Unity helper for applications.",
+  "description": "Common tools and helper classes for unity applications.",
   "unity": "2019.1",
   "unityRelease": "0b5",
   "documentationUrl": "https://example.com/",
   "changelogUrl": "https://example.com/changelog.html",
   "licensesUrl": "https://example.com/licensing.html",
-  "dependencies": {
-    "com.cysharp.unitask": "2.2.4"
-  },
   "author": {
     "name": "Tommy",
-    "email": "tommy@googlemail.com",
+    "email": "tommygeorgewebb@googlemail.com",
     "url": "https://orakeshi.github.io/"
+  },
+  "dependencies": {
+    "com.cysharp.unitask": "2.2.4"
   }
 }
