@@ -8,15 +8,23 @@ namespace Orakeshi.OrakeshiTools.Audio
     /// </summary>
     public class AudioHandler
     {
-        public AudioSource AudioSource { get; set; }
-        
+        public AudioHandler(AudioSource audioSource)
+        {
+            AudioSource = audioSource;
+        }
+        public AudioSource AudioSource { get; }
+
         /// <summary>
         /// Plays sound with a given audio clip.
         /// </summary>
-        /// <param name="audioClip"></param>
-        public void PlaySound(AudioClip audioClip)
+        /// <param name="audioClip">Audio clip to play.</param>
+        /// <param name="isLooping">boolean value to determine if audio should loop.</param>
+        /// <param name="volume">volume parameter.</param>
+        public void PlaySound(AudioClip audioClip, bool isLooping = false, float volume = 1)
         {
+            AudioSource.loop = isLooping;
             AudioSource.clip = audioClip;
+            AudioSource.volume = volume;
             AudioSource.Play();
         }
 
@@ -25,9 +33,11 @@ namespace Orakeshi.OrakeshiTools.Audio
         /// </summary>
         /// <param name="audioClip"></param>
         /// <returns></returns>
-        public async UniTask<bool> PlaySoundAsync(AudioClip audioClip)
+        public async UniTask<bool> PlaySoundAsync(AudioClip audioClip, bool isLooping = false, float volume = 1)
         {
+            AudioSource.loop = isLooping;
             AudioSource.clip = audioClip;
+            AudioSource.volume = volume;
             AudioSource.Play();
             
             await WaitForAudioEnd();
