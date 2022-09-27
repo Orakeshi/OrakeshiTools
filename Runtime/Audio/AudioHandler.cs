@@ -19,12 +19,10 @@ namespace Orakeshi.OrakeshiTools.Audio
         /// </summary>
         /// <param name="audioClip">Audio clip to play.</param>
         /// <param name="isLooping">boolean value to determine if audio should loop.</param>
-        /// <param name="volume">volume parameter.</param>
-        public void PlaySound(AudioClip audioClip, bool isLooping = false, float volume = 1)
+        public void PlaySound(AudioClip audioClip, bool isLooping = false)
         {
             AudioSource.loop = isLooping;
             AudioSource.clip = audioClip;
-            AudioSource.volume = volume;
             AudioSource.Play();
         }
 
@@ -32,12 +30,12 @@ namespace Orakeshi.OrakeshiTools.Audio
         /// Plays sound asynchronously. Waits for sound to finish playing before returning.
         /// </summary>
         /// <param name="audioClip"></param>
+        /// <param name="isLooping"></param>
         /// <returns></returns>
-        public async UniTask<bool> PlaySoundAsync(AudioClip audioClip, bool isLooping = false, float volume = 1)
+        public async UniTask<bool> PlaySoundAsync(AudioClip audioClip, bool isLooping = false)
         {
             AudioSource.loop = isLooping;
             AudioSource.clip = audioClip;
-            AudioSource.volume = volume;
             AudioSource.Play();
             
             await WaitForAudioEnd();
