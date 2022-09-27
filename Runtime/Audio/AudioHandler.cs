@@ -41,6 +41,16 @@ namespace Orakeshi.OrakeshiTools.Audio
             await WaitForAudioEnd();
             return true;
         }
+
+        /// <summary>
+        /// Resets and prepares the audio player for additional use.
+        /// </summary>
+        public void Prepare(bool isLooping = false, float volume = 1f)
+        {
+            AudioSource.Stop();
+            AudioSource.loop = isLooping;
+            AudioSource.volume = volume;
+        }
         
         /// <summary>
         /// Returns true when the audio has finished playing.
