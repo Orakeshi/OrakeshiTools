@@ -1,6 +1,6 @@
 {
   "name": "com.orakeshi.orakeshitools",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "displayName": "Orakeshi Tools",
   "description": "Common tools and helper classes for unity applications.",
   "unity": "2019.1",

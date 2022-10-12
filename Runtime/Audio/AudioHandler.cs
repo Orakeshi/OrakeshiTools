@@ -21,8 +21,7 @@ namespace Orakeshi.OrakeshiTools.Audio
         /// <param name="isLooping">boolean value to determine if audio should loop.</param>
         public void PlaySound(AudioClip audioClip, bool isLooping = false)
         {
-            AudioSource.loop = isLooping;
-            AudioSource.clip = audioClip;
+            SetupAudioPlayer(audioClip, isLooping);
             AudioSource.Play();
         }
 
@@ -34,12 +33,17 @@ namespace Orakeshi.OrakeshiTools.Audio
         /// <returns></returns>
         public async UniTask<bool> PlaySoundAsync(AudioClip audioClip, bool isLooping = false)
         {
-            AudioSource.loop = isLooping;
-            AudioSource.clip = audioClip;
+            SetupAudioPlayer(audioClip, isLooping);
             AudioSource.Play();
             
             await WaitForAudioEnd();
             return true;
+        }
+
+        private void SetupAudioPlayer(AudioClip audioClip, bool isLooping)
+        {
+            AudioSource.loop = isLooping;
+            AudioSource.clip = audioClip;
         }
 
         /// <summary>

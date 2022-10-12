@@ -25,10 +25,7 @@ namespace Orakeshi.OrakeshiTools.Video
         /// <param name="isLooping"></param>
         public void Play(VideoClip videoClipToPlay, bool isLooping = false)
         {
-            Stop();
-            videoPlayer.clip = videoClipToPlay;
-            videoPlayer.Prepare();
-            videoPlayer.isLooping = isLooping;
+            SetupVideoPlayer(videoClipToPlay, isLooping);
             videoPlayer.Play();
             
             IsPlaying = true;
@@ -42,14 +39,19 @@ namespace Orakeshi.OrakeshiTools.Video
         /// <returns></returns>
         public async UniTask<bool> PlayVideoAsync(VideoClip videoClipToPlay, bool isLooping = false)
         {
-            Stop();
-            videoPlayer.clip = videoClipToPlay;
-            videoPlayer.Prepare();
-            videoPlayer.isLooping = isLooping;
+            SetupVideoPlayer(videoClipToPlay, isLooping);
             videoPlayer.Play();
             
             await WaitForVideoEnd();
             return true;
+        }
+
+        private void SetupVideoPlayer(VideoClip videoClipToPlay, bool isLooping)
+        {
+            Stop();
+            videoPlayer.clip = videoClipToPlay;
+            videoPlayer.Prepare();
+            videoPlayer.isLooping = isLooping;
         }
         
         /// <summary>
